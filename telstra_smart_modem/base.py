@@ -54,7 +54,7 @@ class ModemBase:
 
     # Extract the CSRFtoken from the modem index page.
     def _getCSRFtoken(self):
-        response = self.session.get(self.base_url, timeout=HTTP_TIMEOUT)
+        response = self.session.get(f"{self.base_url}/home.lp", timeout=HTTP_TIMEOUT)
         self._extractCSRFtoken_html(response.text)
 
     # Authenticate with the Modem using SRP.

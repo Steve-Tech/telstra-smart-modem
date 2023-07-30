@@ -33,7 +33,7 @@ class Modem(ModemBase):
     def getModemStatus(self):
 
         def getStatusModal():
-            response = self.session.get(self.base_url, timeout=HTTP_TIMEOUT)
+            response = self.session.get(f"{self.base_url}/home.lp", timeout=HTTP_TIMEOUT)
             soup = bs4.BeautifulSoup(response.text, 'html.parser')
             status = soup.find('img', attrs={"src": "img/status.png"})
             if status:
